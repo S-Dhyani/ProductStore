@@ -9,7 +9,7 @@ export const useProductStore = create((set) => ({
                 success: false, message: "Please fill in all fields."
             }}
             // console.log(newProduct)
-            const res = await fetch('http://localhost:5000/api/products', {
+            const res = await fetch("/api/products", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -22,13 +22,13 @@ export const useProductStore = create((set) => ({
         },
 
     fetchProducts   : async()=>{
-        const res = await fetch("http://localhost:5000/api/products")
+        const res = await fetch("/api/products")
         const data= await res.json();
         set({products:data.data})
     },
     deleteProduct: async(pid)=>{
         
-        const res =await fetch(`http://localhost:5000/api/products/${pid}`,{
+        const res =await fetch(`/api/products/${pid}`,{
             method:"DELETE"
         })
 
@@ -41,7 +41,7 @@ export const useProductStore = create((set) => ({
     },
     updateProduct: async (pid,newProduct) => {
        
-            const res = await fetch(`http://localhost:5000/api/products/${pid}`, {
+            const res = await fetch(`/api/products/${pid}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
